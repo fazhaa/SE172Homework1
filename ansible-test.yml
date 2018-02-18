@@ -1,0 +1,12 @@
+---
+- hosts: myAWStestServer
+  sudo: yes
+  tasks:
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest
+    - name: copy index to remote server
+      copy:
+        src: /home/tim/workspace/AnsibleTest/index.html
+        dest: /var/www/html/index.html
+        owner: ubuntu
+
